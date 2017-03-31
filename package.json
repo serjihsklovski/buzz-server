@@ -1,0 +1,22 @@
+{
+  "name": "buzz-server",
+  "version": "1.0.0",
+  "description": "An server for buzz-web",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaveNolt/buzz-server.git"
+  },
+  "author": "Ilya MCKunda Enin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaveNolt/buzz-server/issues"
+  },
+  "homepage": "https://github.com/DaveNolt/buzz-server#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
