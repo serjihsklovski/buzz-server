@@ -7,7 +7,7 @@ var path = config['web-app-path'];
 
 app.get('/json_links/:file', function (req, res) {
   var options = {
-    root: path + '/app/json_links/',
+    root: path + '/public/json_links/',
     dotfiles: 'deny',
     headers: {
       'x-timestamp': Date.now(),
@@ -25,9 +25,9 @@ app.get('/json_links/:file', function (req, res) {
   });
 });
 
-app.get('/generated/:file', function (req, res) {
+app.get('/public/js/:file', function (req, res) {
   var options = {
-    root: path + '/generated/',
+    root: path + '/public/js/',
     dotfiles: 'deny',
     headers: {
       'x-timestamp': Date.now(),
@@ -45,9 +45,9 @@ app.get('/generated/:file', function (req, res) {
   });
 });
 
-app.get('/css/:file', function (req, res) {
+app.get('/public/css/:file', function (req, res) {
   var options = {
-    root: path + '/css/',
+    root: path + '/public/css/',
     dotfiles: 'deny',
     headers: {
       'x-timestamp': Date.now(),
@@ -65,9 +65,9 @@ app.get('/css/:file', function (req, res) {
   });
 });
 
-app.get('/img-refs/:file', function (req, res) {
+app.get('/public/img/:file', function (req, res) {
   var options = {
-    root: path + '/img-refs/',
+    root: path + '/public/img/',
     dotfiles: 'deny',
     headers: {
       'x-timestamp': Date.now(),
@@ -95,7 +95,7 @@ app.get('*', function (req, res) {
     }
   };
   
-  res.sendFile('index.html', options, function (err) {
+  res.sendFile('public/html/index.html', options, function (err) {
     if (err) {
       next(err);
     } else {
