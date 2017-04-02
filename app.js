@@ -85,7 +85,7 @@ app.get('/img-refs/:file', function (req, res) {
   });
 });
 
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
   var options = {
     root: path,
     dotfiles: 'deny',
