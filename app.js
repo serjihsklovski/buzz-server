@@ -5,9 +5,9 @@ var fs = require('fs');
 var config = JSON.parse(fs.readFileSync('server_config.json'));
 var path = config['web-app-path'];
 
-app.get('/json_links/:file', function (req, res) {
+app.get('/public/json/:file', function (req, res) {
   var options = {
-    root: path + '/public/json_links/',
+    root: path + '/public/json/',
     dotfiles: 'deny',
     headers: {
       'x-timestamp': Date.now(),
