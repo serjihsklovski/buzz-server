@@ -5,24 +5,6 @@ var fs = require('fs');
 var config = JSON.parse(fs.readFileSync('server_config.json'));
 var path = config['web-app-path'];
 
-app.get('/', function (req, res) {
-  var options = {
-    root: path,
-    dotfiles: 'deny',
-    headers: {
-      'x-timestamp': Date.now(),
-      'x-sent': true
-    }
-  };
-  res.sendFile('index.html', options, function (err) {
-    if (err) {
-      next(err);
-    } else {
-      console.log('Sent: index.html');
-    }
-  });
-});
-
 app.get('/json_links/:file', function (req, res) {
   var options = {
     root: path + '/app/json_links/',
@@ -99,6 +81,25 @@ app.get('/img-refs/:file', function (req, res) {
       next(err);
     } else {
       console.log('Sent:', fileName);
+    }
+  });
+});
+
+app.get('/', function (req, res) {
+  var options = {
+    root: path,
+    dotfiles: 'deny',
+    headers: {
+      'x-timestamp': Date.now(),
+      'x-sent': true
+    }
+  };
+  
+  res.sendFile('index.html', options, function (err) {
+    if (err) {
+      next(err);
+    } else {
+      console.log('Sent: index.html');
     }
   });
 });
